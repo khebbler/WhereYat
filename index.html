@@ -3,6 +3,36 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twiddler!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="data-generator.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Twiddler!</h1>
+      <button id="show-new-tweets" class="btn btn-primary">Show New Tweets</button>
+      <div id="tweet-input" class="mt-3">
+        <input type="text" id="new-tweet" placeholder="Say something!" class="form-control">
+        <button id="tweet-button" class="btn btn-success mt-2">Tweet</button>
+      </div>
+      <div id="home-timeline" class="timeline mt-4"></div>
+      <div id="user-timeline" class="timeline d-none mt-4"></div>
+      <button id="back-to-home" class="btn btn-secondary d-none mt-2">Back to Home</button>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Twiddler!</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
@@ -12,4 +42,4 @@
   </head>
   <body>
   </body>
-</html>
+</html> -->
