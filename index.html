@@ -5,12 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Twiddler!</title>
-    // bootstrap
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.0/dist/darkly/bootstrap.min.css">
+    <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <!-- other files -->
     <script src="data-generator.js"></script>
     <script src="index.js"></script>
   </head>
   <body>
+    <!-- header -->
+    <div class="container">
+      <header class="my-4">
+        <h1 class="text-center">Twiddler</h1>
+      </header>
+    <!-- tweet box-->
+    <div class="mb-4">
+      <input type="text" id="tweet-input" class="form-control" placeholder="What's happening?" />
+      <button id="tweet-button" class="btn btn-primary mt-2">Tweet</button>
+    </div>
+
+     <!-- tweets -->
+     <div id="tweet-feed" class="list-group">
+    </div>
+  </div>
+
   </body>
 </html>
