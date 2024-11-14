@@ -2,7 +2,7 @@
  * NOTE: This file generates fake tweet data, and is not intended to be part of your implementation.
  * You can safely leave this file untouched, and confine your changes to index.js.
  */
-// home is tweets
+
 // Set up data structures
 const streams = {
   home: [],
@@ -68,7 +68,7 @@ scheduleNextTweet();
 // Utility function for letting students add "write a tweet" functionality
 // (NOTE: Not used by the rest of this file.)
 const writeTweet = (message) => {
-  const visitor = window.visitor;   // < will have to set window.visitor
+  const visitor = window.visitor;
 
   if (!visitor){
     throw new Error('Set the global visitor property!');
