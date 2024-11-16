@@ -13,14 +13,19 @@ $(document).ready(() => {
     // $tweet = new div element
     const $tweet = $('<div class="list-group-item"></div>'); // bootstrap
 
-    // $timestamp
+    // $timestamp of tweet
     const timestamp = moment(tweet.created_at).format('MMMM D, YYYY h:mm A'); // moments.js
+
+    // $createdTimestamp = when tweet was made
+    const createdTimestamp = moment(tweet.created_at).fromNow();
 
     // HTML for tweet
     const tweetHtml = `
       <div>
         <strong>@${tweet.user}</strong>
-        <span class="text-muted" style="float: right;">${timestamp}</span>
+        <span class="text-muted float-end">
+          ${timestamp} (${createdTimestamp})
+        </span>
       </div>
       <p>${tweet.message}</p>
     `;
