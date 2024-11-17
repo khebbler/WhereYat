@@ -24,20 +24,48 @@
       .container {
         padding: 0;
       }
+      .btn-gold {
+        background-color: rgb(0, 0, 0);
+        /* text color */
+        color: rgb(255, 255, 255);
+        border-color: rgb(255, 255, 255);
+        margin: 0 auto; /* Center horizontally */
+        display: block; /* Required for centering */
+      }
+      .btn-gold:hover {
+        background-color: darkgoldenrod;
+      }
+      #new-tweet {
+        width: 80%;
+        max-width: 600px;
+        height: 80px;
+        border-radius: 20px;
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin: 0 auto;
+        display: block;
+      }
+      #new-tweet:focus {
+        outline: none;
+        border-color: rgb(187, 146, 42);
+        box-shadow: 0 0 5px darkgoldenrod;
+      }
+
     </style>
   </head>
   <body>
     <!-- header -->
     <header class="my-4 text-center d-flex justify-content-center">
-      <img src="https://raw.githubusercontent.com/khebbler/immersion-2024-11-twiddler/refs/heads/main/where1000.PNG?token=GHSAT0AAAAAACZ7QRLK3KD2EDZFVCBNTGBKZZZZPSA" alt="First Image" class="img-fluid mx-2" style="height: 100px;">
-      <img src="https://raw.githubusercontent.com/khebbler/immersion-2024-11-twiddler/refs/heads/main/lip1000.png?token=GHSAT0AAAAAACZ7QRLL7MU3HOHO4PPGS6T4ZZZZLVA" alt="Second Image" class="img-fluid mx-2" style="height: 100px;">
+      <img src="https://raw.githubusercontent.com/khebbler/immersion-2024-11-twiddler/refs/heads/main/where1000.PNG?token=GHSAT0AAAAAACZ7QRLK5L7QETCX4L4E3XGMZZZ3RQA" alt="where" class="img-fluid mx-2" style="height: 100px;">
+      <img src="https://raw.githubusercontent.com/khebbler/immersion-2024-11-twiddler/refs/heads/main/lip1000.png?token=GHSAT0AAAAAACZ7QRLKZSYSOMTGYAPZZVFIZZZ3QLQ" alt="lip" class="img-fluid mx-2" style="height: 100px;">
       </header>
 
 
     <!-- tweet box-->
     <div class="mb-4">
       <input type="text" id="new-tweet" class="form-control" placeholder="Where y'at?" />
-      <button id="tweet-button" class="btn btn-primary mt-2">Go see the special man.</button>
+      <button id="tweet-button" class="btn btn-gold mt-2">Go see the special man.</button>
     </div>
 
      <!-- tweets -->
