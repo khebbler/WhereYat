@@ -11,9 +11,12 @@ $(document).ready(() => {
   // back to home button
   const $backButton = $('<button class="btn btn-secondary mt-2 d-none">Back to Home</button>');
 
-
   // adding back button
   $tweetFeed.before($backButton);
+
+  // adding username
+  window.visitor = 'katherine';
+  console.log(window.visitor);
 
   // displayTweets
   const displayTweets = (tweets = streams.home) => {
@@ -29,10 +32,10 @@ $(document).ready(() => {
     // timestamp of tweet
     const timestamp = moment(tweet.created_at).format('MMMM D, YYYY h:mm A'); // moments.js
 
-    // createdTimestamp = when tweet was made
+    // timestamp of how long ago
     const createdTimestamp = moment(tweet.created_at).fromNow(); // moment.js
 
-    // HTML for tweet
+    // html for tweet
     const tweetHtml = `
       <div>
         <strong class="username" data-username="${tweet.user}" style="cursor: pointer;">
@@ -45,10 +48,10 @@ $(document).ready(() => {
       <p>${tweet.message}</p>
     `;
 
-    // adding HTML to $tweet
+    // adding html to tweet
     $tweet.html(tweetHtml);
 
-    // returning $tweet
+    // returning tweet
     return $tweet;
   });
 
@@ -63,13 +66,13 @@ $(document).ready(() => {
     const username = $(this).data('username');
 
     console.log(username);
-    console.log(this); // debug
-    console.log(username); // debug
+    console.log(this);
+    console.log(username);
 
     // getting users tweets
     const userTweets = streams.users[username];
 
-    console.log(username, userTweets); //debug
+    console.log(username, userTweets);
 
     // checking is user exist
     if (username && streams.users[username]) {
@@ -91,6 +94,33 @@ $backButton.on('click', () => {
   displayTweets();
   // hiding back button
   $backButton.addClass('d-none'); // bootstrap
+});
+
+// tweet button click event listener
+$tweetButton.on('click', () => {
+  // getting input value
+  const message = $newTweet.val().trim();
+
+  if (!window.visitor) {
+    alert('Please set your username before tweeting!');
+    return;
+  }
+
+  if (message) {
+    // checking if visitor is in streams.users
+    if (!streams.users[window.visitor]) {
+      streams.users[window.visitor] = [];
+    }
+
+    // adding tweet
+    writeTweet(message);
+    // clearing input box
+    $newTweet.val('');
+    // refreshing tweet feed
+    displayTweets();
+  } else {
+    alert('Say something!');
+  }
 });
 
   // calling displayTweets to show tweets
