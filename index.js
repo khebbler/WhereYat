@@ -10,20 +10,20 @@ $(document).ready(() => {
 
   // displayTweets
   const displayTweets = (tweets = streams.home) => {
-    // clears #tweet-feed container
+    // clearing #tweet-feed container
     $tweetFeed.empty();
 
-  // looping through tweets in streams.home & mapping
-  const $tweets = streams.home.map((tweet) => {
+  // looping through tweets & mapping
+  const $tweets = tweets.map((tweet) => {
 
     // $tweet = new div element
     const $tweet = $('<div class="list-group-item"></div>'); // bootstrap
 
-    // $timestamp of tweet
+    // timestamp of tweet
     const timestamp = moment(tweet.created_at).format('MMMM D, YYYY h:mm A'); // moments.js
 
-    // $createdTimestamp = when tweet was made
-    const createdTimestamp = moment(tweet.created_at).fromNow();
+    // createdTimestamp = when tweet was made
+    const createdTimestamp = moment(tweet.created_at).fromNow(); // moment.js
 
     // HTML for tweet
     const tweetHtml = `
@@ -50,16 +50,31 @@ $(document).ready(() => {
 };
 
   // username click event listener
-  $tweetFeed.on('click', '.username', function () {
+  $tweetFeed.on('click', '.username', function ()  {
+
     // getting clicked username
     const username = $(this).data('username');
-    console.log('Clicked element:', this); // debug
-    console.log(`Clicked username: ${username}`); // debug
+
+    console.log(username);
+    console.log(this); // debug
+    console.log(username); // debug
+
     // getting users tweets
     const userTweets = streams.users[username];
-    console.log(`User tweets for ${username}:`, userTweets); //debug
-    if (!username) {
-      console.error('Failed to retrieve username from element');
+
+    console.log(username, userTweets); //debug
+
+    // checking is user exist
+    if (username && streams.users[username]) {
+      // getting user's tweets
+      const userTweets = streams.users[username];
+      // showing user's tweets
+      displayTweets(userTweets);
+      // showing back button
+      $backButton.removeClass('d-none'); // bootstrap
+    } else {
+      console.error('No tweets');
+
     }
   });
 
@@ -68,10 +83,10 @@ $backButton.on('click', () => {
   // showing all tweets
   displayTweets();
   // hiding back button
-  $backButton.addClass('d-none');
+  $backButton.addClass('d-none'); // bootstrap
 });
 
-  // calling displayTweets to display tweets
+  // calling displayTweets to show tweets
   displayTweets();
 });
 
