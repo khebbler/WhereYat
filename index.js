@@ -20,11 +20,11 @@ $(document).ready(() => {
 
   // displayTweets
   const displayTweets = (tweets = streams.home) => {
-    // clearing #tweet-feed container
+    // clearing tweetFeed
     $tweetFeed.empty();
 
-  // looping through tweets & mapping
-  const $tweets = tweets.map((tweet) => {
+  // reversing tweets before mapping
+  const $tweets = tweets.slice().reverse().map((tweet) => {
 
     // $tweet = new div element
     const $tweet = $('<div class="list-group-item"></div>'); // bootstrap
