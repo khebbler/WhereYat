@@ -1,6 +1,12 @@
 $(document).ready(() => {
   // $tweetFeed = #tweet-feed
   const $tweetFeed = $('#tweet-feed');
+  // back to home button
+  // const $backButton = $('<button class="btn btn-secondary mt-2 d-none">Back to Home</button>');
+  const $backButton = $('<button class="back-button">Back to Home</button>');
+
+  // adding back button
+  $tweetFeed.before($backButton);
 
   // displayTweets
   const displayTweets = () => {
@@ -22,9 +28,11 @@ $(document).ready(() => {
     // HTML for tweet
     const tweetHtml = `
       <div>
-        <strong>@${tweet.user}</strong>
-        <span class="text-muted float-end">
-          ${timestamp} (${createdTimestamp})
+        <strong class="username" data-username="${tweet.user}" style="cursor: pointer;">
+            @${tweet.user}
+          </strong>
+          <span class="text-muted float-end">
+            ${timestamp} (${createdTimestamp})
         </span>
       </div>
       <p>${tweet.message}</p>
@@ -41,7 +49,27 @@ $(document).ready(() => {
   // appending HTML to $tweetFeed
   $tweetFeed.append($tweets);
 
+
+  // username click event listener
+  $('.username').on('click', function () {
+    // getting clicked username
+    const username = $(this).data('username');
+    // getting users tweets
+    const userTweets = streams.users[username];
+    // showing only users tweets
+    displayTweets(userTweets);
+    // showing back button
+    $backButton.removeClass('d-none');
+  });
 };
+
+// back to home click event listener
+$backButton.on('click', () => {
+  // showing all tweets
+  displayTweets();
+  // hiding back button
+  $backButton.addClass('d-none');
+});
 
   // calling displayTweets to display tweets
   displayTweets();
