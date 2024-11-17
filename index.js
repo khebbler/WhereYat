@@ -32,7 +32,7 @@ $(document).ready(() => {
     // timestamp of tweet
     const timestamp = moment(tweet.created_at).format('MMMM D, YYYY h:mm A'); // moments.js
 
-    // timestamp of how long ago
+    // timestamp of how long ago tweet was created
     const createdTimestamp = moment(tweet.created_at).fromNow(); // moment.js
 
     // html for tweet
