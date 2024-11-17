@@ -1,9 +1,16 @@
 $(document).ready(() => {
-  // $tweetFeed = #tweet-feed
+  // feed of tweets
   const $tweetFeed = $('#tweet-feed');
+
+  // input for new tweets
+  const $newTweet = $('#new-tweet');
+
+  // submit tweet button
+  const $tweetButton = $('#tweet-button');
+
   // back to home button
-  // const $backButton = $('<button class="btn btn-secondary mt-2 d-none">Back to Home</button>');
-  const $backButton = $('<button class="back-button">Back to Home</button>');
+  const $backButton = $('<button class="btn btn-secondary mt-2 d-none">Back to Home</button>');
+
 
   // adding back button
   $tweetFeed.before($backButton);
