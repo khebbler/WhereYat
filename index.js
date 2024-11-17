@@ -9,7 +9,7 @@ $(document).ready(() => {
   $tweetFeed.before($backButton);
 
   // displayTweets
-  const displayTweets = () => {
+  const displayTweets = (tweets = streams.home) => {
     // clears #tweet-feed container
     $tweetFeed.empty();
 
@@ -43,25 +43,25 @@ $(document).ready(() => {
 
     // returning $tweet
     return $tweet;
-
-
   });
+
   // appending HTML to $tweetFeed
   $tweetFeed.append($tweets);
-
+};
 
   // username click event listener
-  $('.username').on('click', function () {
+  $tweetFeed.on('click', '.username', function () {
     // getting clicked username
     const username = $(this).data('username');
+    console.log('Clicked element:', this); // debug
+    console.log(`Clicked username: ${username}`); // debug
     // getting users tweets
     const userTweets = streams.users[username];
-    // showing only users tweets
-    displayTweets(userTweets);
-    // showing back button
-    $backButton.removeClass('d-none');
+    console.log(`User tweets for ${username}:`, userTweets); //debug
+    if (!username) {
+      console.error('Failed to retrieve username from element');
+    }
   });
-};
 
 // back to home click event listener
 $backButton.on('click', () => {
