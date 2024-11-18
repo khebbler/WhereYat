@@ -17,7 +17,7 @@
     <style>
       body {
         /* background */
-        background-color: black;
+        background-color: rgb(0, 0, 0);
         /* text color */
         color: white;
       }
@@ -64,14 +64,15 @@
       #back-button {
         margin: 20px auto;
         display: block;
+        width: fit-content;
         text-align: center;
       }
       .hashtag {
-        color: lightskyblue !important;
+        color: lightblue !important;
         text-decoration: underline !important;
       }
       .hashtag:hover {
-        color: darkgoldenrod !important;
+        color: goldenrod !important;
         text-decoration: underline !important;
       }
 
@@ -80,9 +81,9 @@
   <body>
     <!-- header -->
     <header class="my-4 text-center d-flex justify-content-center">
-      <img src="where1000.PNG" alt="lip" class="img-fluid mx-2" style="height: 120px;">
-      <img src="lip1000crop.png" alt="lip" class="img-fluid mx-2" style="height: 130px;">
-      <img src="q1000.PNG" alt="lip" class="img-fluid mx-2" style="height: 130px;">
+      <img src="where1000.PNG" alt="lip" class="img-fluid mx-2" style="height: 110px;">
+      <img src="lip1000crop.png" alt="lip" class="img-fluid mx-2" style="height: 120px;">
+      <img src="q1000.PNG" alt="lip" class="img-fluid mx-2" style="height: 120px;">
       </header>
 
 
@@ -94,7 +95,6 @@
 
      <!-- tweets -->
      <div id="tweet-feed" class="list-group"></div>
-
 
     <!-- home button -->
     <button id="back-button" class="btn btn-secondary mt-2 d-none">Back to Home</button>

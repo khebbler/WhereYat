@@ -18,7 +18,7 @@ $(document).ready(() => {
 
   // adding username
   window.visitor = 'Guest';
-  console.log(window.visitor);
+  // console.log(window.visitor);
 
   // displayTweets
   const displayTweets = (tweets = streams.home) => {
@@ -26,10 +26,10 @@ $(document).ready(() => {
     // clearing tweetFeed
     $tweetFeed.empty();
 
-    // reversing tweets before mapping
+    // copying & reversing tweets before mapping
     const $tweets = tweets.slice().reverse().map((tweet) => {
 
-      // $tweet = new div element
+      // tweet div
       const $tweet = $('<div class="list-group-item"></div>'); // bootstrap
 
       // timestamp of tweet
@@ -65,7 +65,7 @@ $(document).ready(() => {
       return $tweet;
     });
 
-    // appending HTML to $tweetFeed
+    // appending html to tweetFeed
     $tweetFeed.append($tweets);
   };
 
@@ -85,8 +85,8 @@ $(document).ready(() => {
     if (username && streams.users[username]) {
       // showing user's tweets
       displayTweets(userTweets);
-      // showing back button
-      $backButton.removeClass('d-none'); // bootstrap
+      // back button
+      $backButton.removeClass('d-none'); // bootstrap hide (d-none)
     }
   });
 
@@ -114,9 +114,9 @@ $(document).ready(() => {
   // tweet button click event listener
   $tweetButton.on('click', () => {
     // getting input value
-    const message = $newTweet.val().trim();
+    const message = $newTweet.val();
 
-    //
+    // message
     if (message) {
       // checking if visitor is in streams.users
       if (!streams.users[window.visitor]) {
