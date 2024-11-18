@@ -17,7 +17,7 @@ $(document).ready(() => {
   $tweetFeed.before($backButton);
 
   // adding username
-  window.visitor = 'katherine';
+  window.visitor = 'Guest';
   console.log(window.visitor);
 
   // displayTweets
@@ -87,16 +87,14 @@ $(document).ready(() => {
       displayTweets(userTweets);
       // showing back button
       $backButton.removeClass('d-none'); // bootstrap
-    } else {
-      console.error('No tweets');
     }
   });
 
-  // Click event listener for hashtags
+  // hashtag click event listener
   $tweetFeed.on('click', '.hashtag', function () {
     // getting clicked hashtag
     const hashtag = $(this).data('hashtag');
-    // filtering tweets with hashtag
+    // filtering tweets that have hashtag
     const hashtagTweets = streams.home.filter((tweet) => tweet.message.includes(`#${hashtag}`));
     // showing filtered tweets
     displayTweets(hashtagTweets);
@@ -118,11 +116,7 @@ $(document).ready(() => {
     // getting input value
     const message = $newTweet.val().trim();
 
-    if (!window.visitor) {
-      alert('Error');
-      return;
-    }
-
+    //
     if (message) {
       // checking if visitor is in streams.users
       if (!streams.users[window.visitor]) {
