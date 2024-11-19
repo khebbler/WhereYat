@@ -17,7 +17,7 @@ $(document).ready(() => {
   $tweetFeed.before($backButton);
 
   // adding username
-  window.visitor = 'Guest';
+  window.visitor = 'guest';
   // console.log(window.visitor);
 
   // displayTweets
@@ -45,14 +45,14 @@ $(document).ready(() => {
       });
 
       // html for tweet
-        // username, timestamp, hashtag
+        // username, timestamps, hashtag
       const tweetHtml = `
         <div>
           <strong class="username" data-username="${tweet.user}" style="cursor: pointer;">
               @${tweet.user}
             </strong>
             <span class="text-muted float-end">
-              ${timestamp} (${createdTimestamp})
+              ${timestamp} <span class="created-time">(${createdTimestamp})</span>
           </span>
         </div>
         <p>${hashtag}</p>
@@ -65,7 +65,7 @@ $(document).ready(() => {
       return $tweet;
     });
 
-    // appending html to tweetFeed
+    // appending tweets to tweetFeed
     $tweetFeed.append($tweets);
   };
 
@@ -85,8 +85,8 @@ $(document).ready(() => {
     if (username && streams.users[username]) {
       // showing user's tweets
       displayTweets(userTweets);
-      // back button
-      $backButton.removeClass('d-none'); // bootstrap hide (d-none)
+      // hiding back button
+      $backButton.removeClass('d-none'); // bootstrap
     }
   });
 
@@ -98,6 +98,7 @@ $(document).ready(() => {
     const hashtagTweets = streams.home.filter((tweet) => tweet.message.includes(`#${hashtag}`));
     // showing filtered tweets
     displayTweets(hashtagTweets);
+    // hiding back button
     $backButton.removeClass('d-none');
   });
 
