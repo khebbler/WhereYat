@@ -135,6 +135,11 @@ $(document).ready(() => {
     }
   });
 
+  // refresh button click event listener
+  $('#refresh-button').on('click', function () {
+    displayTweets();
+  });
+
   // calling displayTweets to show tweets
   displayTweets();
 });
