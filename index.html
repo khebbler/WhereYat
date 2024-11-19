@@ -37,7 +37,7 @@
       }
       #new-tweet {
         width: 80%;
-        max-width: 600px;
+        max-width: 500px;
         height: 80px;
         border-radius: 20px;
         font-size: 16px;
@@ -54,7 +54,7 @@
       }
       #tweet-feed {
         width: 80%;
-        max-width: 600px;
+        max-width: 500px;
         margin: 0 auto;
         background-color: #1a1a1a;
         border-radius: 10px;
@@ -68,29 +68,37 @@
         text-align: center;
       }
       .hashtag {
-        color: lightblue !important;
-        text-decoration: underline !important;
+        color: lightsky !important;
+        text-decoration: none !important;
       }
       .hashtag:hover {
-        color: goldenrod !important;
+        color: lightskyblue !important;
         text-decoration: underline !important;
       }
+      .username {
+      color: rgba(211, 211, 211, 0.644);
+      cursor: pointer;
+    }
+    .username:hover {
+    color: goldenrod;
+    text-decoration: underline;
+    }
 
     </style>
   </head>
   <body>
     <!-- header -->
     <header class="my-4 text-center d-flex justify-content-center">
-      <img src="where1000.PNG" alt="lip" class="img-fluid mx-2" style="height: 110px;">
-      <img src="lip1000crop.png" alt="lip" class="img-fluid mx-2" style="height: 120px;">
-      <img src="q1000.PNG" alt="lip" class="img-fluid mx-2" style="height: 120px;">
+      <img src="where1000.PNG" alt="lip" class="img-fluid mx-2" style="height: 105px;">
+      <img src="lip1000crop.png" alt="lip" class="img-fluid mx-2" style="height: 115px;">
+      <img src="q1000.PNG" alt="lip" class="img-fluid mx-2" style="height: 115px;">
       </header>
 
 
     <!-- tweet box-->
     <div class="mb-4">
       <input type="text" id="new-tweet" class="form-control" placeholder="Where y'at?" />
-      <button id="tweet-button" class="btn btn-gold mt-2">Go see the special man.</button>
+      <button id="tweet-button" class="btn btn-gold mt-2">Submit</button>
     </div>
 
      <!-- tweets -->
