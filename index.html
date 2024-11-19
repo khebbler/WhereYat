@@ -58,7 +58,11 @@
         background-color: #1a1a1a;
         border-radius: 10px;
         padding: 10px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        max-height: 500px;
+        overflow-y: auto; /* scrollbar */
+        scrollbar-width: thin;
+        scrollbar-color: grey #1a1a1a;
       }
       #back-button {
         margin: 20px auto;
@@ -102,7 +106,7 @@
       <!-- submit tweet button -->
       <button id="tweet-button" class="btn btn-gold mt-2">Submit</button>
     </div>
-    <!-- tweets -->
+    <!-- tweet feed -->
      <div id="tweet-feed" class="list-group"></div>
     <!-- refresh button -->
       <button id="refresh-button" class="btn btn-gold mt-2">Refresh</button>
